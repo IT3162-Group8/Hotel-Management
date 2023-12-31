@@ -1,0 +1,32 @@
+.homepage{
+    display: flex;
+    margin: auto;
+    padding: 2rem;
+}
+.form-container-home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 4rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    
+}
+.form-container h2 {
+    color: #252525;
+    padding-bottom: 3.5rem;
+    text-align: center;
+}
+
+.button-div{
+    position: absolute;
+    right: 10px;
+    top: 10;
+    
+    float: right;
+   
+    
+}

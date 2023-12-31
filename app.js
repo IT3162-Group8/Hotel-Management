@@ -14,12 +14,25 @@ app.get("/getUsers",cors(),(req,res)=>{
     .catch(err =>res.json(err))
 })
 
+app.get("/getEmployeeByPosition", cors(), async (req, res) => {
+    const { position } = req.query;
 
+    try {
+        const employeeData = await collection.find({ selectPosition: position });
+        res.json(employeeData);
+    } catch (err) {
+        console.error(err);
+        res.json(err);
+    }
+});
+
+
+//Login
 app.post("/",async(req,res)=>{
     const{email,password,empId,firstName,lastName}=req.body
 
     try{
-        const check=await collection.findOne({empId:empId})
+        const check=await collection.findOne({empId:empId,password:password})
 
         if(check){
             res.json("exist")
@@ -36,7 +49,7 @@ app.post("/",async(req,res)=>{
 })
 
 
-
+//Sign Up
 app.post("/signup",async(req,res)=>{
     const{email,password,empId,firstName,lastName,address,dob,selectedBank,accNum,selectPosition,nicNumber,gender}=req.body
 
